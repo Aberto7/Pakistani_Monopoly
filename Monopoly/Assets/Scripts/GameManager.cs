@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.EventSystems;
 
 namespace Monopoly
 {
@@ -538,34 +539,36 @@ namespace Monopoly
             SceneManager.LoadScene(2);
         }
         
-        private IEnumerator WaitForDiceRoll(System.Action<int> callback) {
+private IEnumerator WaitForDiceRoll(System.Action<int> callback) {
         
-            // wait for player to press space
-            yield return WaitForKeyPress(KeyCode.Space); // wait for this function to return
+            yield return WaitForKeyPress(KeyCode.Space); 
             popUpWindow.SetActive(false);
         
-            // Roll dice after player presses space
             dice.RollDice();
             while (DiceResult.diceNum == -1) {
                 yield return new WaitForSeconds(2);
             }
 
-            callback(DiceResult.diceNum); // Use callback to do something with result
+            callback(DiceResult.diceNum); 
         }
         
         private IEnumerator WaitForKeyPress(KeyCode key)
         {
             bool done = false;
-            while(!done) // essentially a "while true", but with a bool to break out naturally
+            while(!done) 
             {
-                if(Input.GetKeyDown(key))
+                if(Input.GetKeyDown(key) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
                 {
-                    done = true; // breaks the loop
+                    if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    {
+                        yield return null;
+                        continue;
+                    }
+
+                    done = true; 
                 }
-                yield return null; // wait until next frame, then continue execution from here (loop continues)
+                yield return null; 
             }
-        
-            // now this function returns
         }
 
         public override void OnPlayerLeftRoom(Player other)
@@ -573,8 +576,6 @@ namespace Monopoly
             string text = other.NickName + " has left the game.";
             PlayerUi.SendMessage ("AddActivityText", text, SendMessageOptions.RequireReceiver);
 
-            // Reset all owned properties of the player
-            // We do this locally for every player so we don't need to use the network
             for (int i = 0; i < 40; i++) {
                 if (board.locations[i] is Property) {
                     Property property = (Property)board.locations[i];
