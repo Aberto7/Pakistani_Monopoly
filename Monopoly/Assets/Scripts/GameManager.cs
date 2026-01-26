@@ -148,7 +148,7 @@ namespace Monopoly
                         int rent = currentLocation.GetRent();
                         bool paid = PayMoney(rent, currentLocation.owner);
                         if (paid) {
-                            string text = "paid $" + rent + " in rent to " + currentLocation.owner.NickName;
+                            string text = "paid PKR " + rent + " in rent to " + currentLocation.owner.NickName;
                             SendActivityMessage(text, currentPlayer);
                         }
                         else {
@@ -168,7 +168,7 @@ namespace Monopoly
                         int rent = currentLocation.GetRent();
                         bool paid = PayMoney(rent, currentLocation.owner);
                         if (paid) {
-                            string text = "paid $" + rent + " in rent to " + currentLocation.owner.NickName;
+                            string text = "paid PKR " + rent + " in rent to " + currentLocation.owner.NickName;
                             SendActivityMessage(text, currentPlayer);
                         }
                         else {
@@ -188,7 +188,7 @@ namespace Monopoly
                         int rent = currentLocation.GetRent((int)diceRoll);
                         bool paid = PayMoney(rent, currentLocation.owner);
                         if (paid) {
-                            string text = "paid $" + rent + " in rent to " + currentLocation.owner.NickName;
+                            string text = "paid PKR " + rent + " in rent to " + currentLocation.owner.NickName;
                             SendActivityMessage(text, currentPlayer);
                         }
                         else {
@@ -201,7 +201,7 @@ namespace Monopoly
                 Tax currentLocation = (Tax)board.locations[PlayerManager.location];
                 bool paid = PayMoney(currentLocation.tax);
                 if (paid) {
-                    string text = "paid $" + currentLocation.tax + " in taxes";
+                    string text = "paid PKR " + currentLocation.tax + " in taxes";
                     SendActivityMessage(text, currentPlayer);
                 }
             }
@@ -221,7 +221,7 @@ namespace Monopoly
                         bool paid = PayMoney(50);
                         if (paid) {
                             int amountPaid = 50;
-                            string paidMessage = "paid $" + amountPaid.ToString();
+                            string paidMessage = "paid PKR " + amountPaid.ToString();
                             SendActivityMessage(paidMessage, currentPlayer);
                         }
                         break;
@@ -233,12 +233,12 @@ namespace Monopoly
                         // If receive money
                         if (drawnCard.amountMoney > 0) {
                             ReceiveMoney(drawnCard.amountMoney);
-                            string receivedMessage = "received $" + drawnCard.amountMoney.ToString();
+                            string receivedMessage = "received PKR " + drawnCard.amountMoney.ToString();
                             SendActivityMessage(receivedMessage, currentPlayer);
                         } else if (drawnCard.amountMoney < 0) {
                             bool paid2 = PayMoney(Math.Abs(drawnCard.amountMoney));
                             if (paid2) {
-                                string paidMessage = "paid $" + Math.Abs(drawnCard.amountMoney).ToString();
+                                string paidMessage = "paid PKR " + Math.Abs(drawnCard.amountMoney).ToString();
                                 SendActivityMessage(paidMessage, currentPlayer);
                             }
                         }
@@ -256,12 +256,12 @@ namespace Monopoly
                         // If receive money
                         if (drawnCard2.amountMoney > 0) {
                             ReceiveMoney(drawnCard2.amountMoney);
-                            string receivedMessage2 = "received $" + drawnCard2.amountMoney.ToString();
+                            string receivedMessage2 = "received PKR " + drawnCard2.amountMoney.ToString();
                             SendActivityMessage(receivedMessage2, currentPlayer);
                         } else if (drawnCard2.amountMoney < 0) {
                             bool paid3 = PayMoney(Math.Abs(drawnCard2.amountMoney));
                             if (paid3) {
-                                string paidMessage2 = "paid $" + Math.Abs(drawnCard2.amountMoney).ToString();
+                                string paidMessage2 = "paid PKR " + Math.Abs(drawnCard2.amountMoney).ToString();
                                 SendActivityMessage(paidMessage2, currentPlayer);
                             }
                         }
@@ -307,7 +307,7 @@ namespace Monopoly
                 dicePhotonView.TransferOwnership(PhotonNetwork.LocalPlayer);
 
                 popUpWindow.SetActive(true);
-                popUpWindow.SendMessage("DisplayText", "It's your turn! Press space to roll the dice", SendMessageOptions.RequireReceiver);
+                popUpWindow.SendMessage("DisplayText", "It's your turn! Tap the screen to roll the dice", SendMessageOptions.RequireReceiver);
 
                 StartCoroutine(WaitForDiceRoll(diceNum => {
                     EnableButton("endTurnButton");
@@ -434,13 +434,13 @@ namespace Monopoly
 
                 if (isRent) { // Make sure the other player also receives their rent
                     Property currentLocation = (Property)board.locations[PlayerManager.location];
-                    string paidMessage = "paid $" + PlayerManager.noMoneyAmount.ToString() + " in rent to " + currentLocation.owner.NickName;
+                    string paidMessage = "paid PKR " + PlayerManager.noMoneyAmount.ToString() + " in rent to " + currentLocation.owner.NickName;
                     SendActivityMessage(paidMessage, currentPlayer);
                     PayMoney(PlayerManager.noMoneyAmount, currentLocation.owner);
                     isRent = false;
                 }
                 else {
-                    string paidMessage = "paid $" + PlayerManager.noMoneyAmount.ToString();
+                    string paidMessage = "paid PKR " + PlayerManager.noMoneyAmount.ToString();
                     SendActivityMessage(paidMessage, currentPlayer);
                     PayMoney(PlayerManager.noMoneyAmount);
                 }

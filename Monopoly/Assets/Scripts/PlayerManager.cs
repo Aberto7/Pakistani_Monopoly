@@ -24,7 +24,7 @@ namespace Monopoly
             if (photonView.IsMine)
             {
                 PlayerManager.LocalPlayerInstance = this.gameObject;
-                PlayerManager.balance = 1500;
+                PlayerManager.balance = 15000;
                 PlayerManager.location = 0;
                 PlayerManager.noMoneyAmount = 0;
             }

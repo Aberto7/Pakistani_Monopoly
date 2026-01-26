@@ -43,31 +43,31 @@ namespace Monopoly
         public void DisplayPropertyInfo(int propertyNum)
         {
             if (propertyNum == -1) {
-                string text = "<b>Reading Railroad</b>";
+                string text = "<b>City Station Railroad</b>";
                 Railroad readingRailroad = (Railroad)GameManager.instance.board.locations[5];
                 if (readingRailroad.owner == null) {
                     text = text + " - Owner: None";
                 } else text = text + " - Owner: " + readingRailroad.owner.NickName;
 
                 Railroad pennsylvaniaRailroad = (Railroad)GameManager.instance.board.locations[15];
-                text = text + "\n<b>Pennsylvania Railroad</b>";
+                text = text + "\n<b>Cantt Station</b>";
                 if (pennsylvaniaRailroad.owner == null) {
                     text = text + " - Owner: None";
                 } else text = text + " - Owner: " + pennsylvaniaRailroad.owner.NickName;
 
                 Railroad bAndORailroad = (Railroad)GameManager.instance.board.locations[25];
-                text = text + "\n<b>B & O Railroad</b>";
+                text = text + "\n<b>Drigh Road Station</b>";
                 if (bAndORailroad.owner == null) {
                     text = text + " - Owner: None";
                 } else text = text + " - Owner: " + bAndORailroad.owner.NickName;
 
                 Railroad shortLine = (Railroad)GameManager.instance.board.locations[35];
-                text = text + "\n<b>Short Line</b>";
+                text = text + "\n<b>Landhi Station</b>";
                 if (shortLine.owner == null) {
                     text = text + " - Owner: None";
                 } else text = text + " - Owner: " + shortLine.owner.NickName;
 
-                text = text + "\n\nPrice: $200\n\nRent:\n1 owned: $25\n2 owned: $50\n3 owned: $100\n4 owned: $200";
+                text = text + "\n\nPrice: PKR 2000\n\nRent:\n1 owned: PKR 25\n2 owned: PKR 50\n3 owned: PKR 100\n4 owned: PKR 200";
                 windowText.text = text;
             }
 
@@ -84,9 +84,9 @@ namespace Monopoly
                     text = text + "Owner: None";
                 } else text = text + "Owner: " + waterWorks.owner.NickName;
 
-                text = text + "\n\nPrice: $150";
-                text = text + "\n\nRent:\n1 utility owned: $4 x diceroll";
-                text = text + "\n2 utility owned: $10 x diceroll";
+                text = text + "\n\nPrice: PKR 1500";
+                text = text + "\n\nRent:\n1 utility owned: PKR 40 x diceroll";
+                text = text + "\n2 utility owned: PKR 100 x diceroll";
                 windowText.text = text;
             }
 
@@ -97,17 +97,17 @@ namespace Monopoly
                     text = text + "Owner: None";
                 } else text = text + "Owner: " + property.owner.NickName;
 
-                text = text + "\nPrice: $" + property.price;
-                text = text + "\nHouse price: $" + property.housePrice;
+                text = text + "\nPrice: PKR " + property.price;
+                text = text + "\nHouse price: PKR " + property.housePrice;
                 text = text + "\nNumber of houses built: " + property.numHouses;
                 int baseRent = property.baseRent;
 
-                text = text + "\n\nRent:\n0 houses: $" + baseRent;
-                text = text + "\n1 house: $" + (baseRent * 5);
-                text = text + "\n2 houses: $" + (baseRent * 15);
-                text = text + "\n3 houses: $" + (baseRent * 45);
-                text = text + "\n4 houses: $" + ((baseRent * 45)+200);
-                text = text + "\n5 houses (hotel): $" + ((baseRent * 45)+400);
+                text = text + "\n\nRent:\n0 houses: PKR " + baseRent;
+                text = text + "\n1 house: PKR " + (baseRent * 5);
+                text = text + "\n2 houses: PKR " + (baseRent * 15);
+                text = text + "\n3 houses: PKR " + (baseRent * 45);
+                text = text + "\n4 houses: PKR " + ((baseRent * 45)+200);
+                text = text + "\n5 houses (hotel): PKR " + ((baseRent * 45)+400);
                 windowText.text = text;
             }
             this.gameObject.SetActive(true);
