@@ -58,7 +58,7 @@ namespace Monopoly
                     }
                     for (int i = 0; i < group.Length; i++) {
                         if (numHouses[i] == minNum) {
-                            string text = GameManager.instance.board.locations[group[i]].name + " - $" + housePrice;
+                            string text = GameManager.instance.board.locations[group[i]].name + " - PKR " + housePrice;
                             options.Add(text);
                             validProperties.Add(group[i]);
                         }

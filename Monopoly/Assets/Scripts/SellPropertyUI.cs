@@ -51,7 +51,7 @@ namespace Monopoly
                         price = (int)(0.5*property.price);
                     }
 
-                    dropDownText = dropDownText + " - $" + price.ToString();
+                    dropDownText = dropDownText + " - PKR " + price.ToString();
                     options.Add(dropDownText);
                     ownedProperties.Add(i);
                 }
