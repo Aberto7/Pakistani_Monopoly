@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2667974967888929513}
   - component: {fileID: -4035217559651830788}
   - component: {fileID: 4146260274005887832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 5
+  slerpSpeed: 10
 --- !u!114 &2667974967888929513
 MonoBehaviour:
   m_ObjectHideFlags: 0

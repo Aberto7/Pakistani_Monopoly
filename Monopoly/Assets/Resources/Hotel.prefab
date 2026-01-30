@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1707808291325754883}
   - component: {fileID: -3091249410094352563}
   - component: {fileID: 7702458141302001328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hotel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

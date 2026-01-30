@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -8278281268847305925}
   - component: {fileID: -3446956321366861019}
   - component: {fileID: -1011210535287041527}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Thimble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 5
+  slerpSpeed: 10
 --- !u!114 &-8278281268847305925
 MonoBehaviour:
   m_ObjectHideFlags: 0

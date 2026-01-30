@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5426359218678943215}
   - component: {fileID: 466639148672192414}
   - component: {fileID: 8975617935126241428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheelbarrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 5
+  slerpSpeed: 10
 --- !u!114 &5426359218678943215
 MonoBehaviour:
   m_ObjectHideFlags: 0
